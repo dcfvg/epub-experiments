@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <style type="text/css">
+    .vid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      margin: 0 auto;
+    }
+  </style>
+  <title>video-gifs</title>
+</head>
+  <body>
+    <video muted="true" autoplay="true" class="vid" id="robotVid">
+      <source src="http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4" type="video/mp4">
+    </video>
+
+    <script type="text/javascript">
+      window.onload=function(){
+      (function() {
+
+        var stop = 0;
+        var vidElem = document.getElementById('robotVid');
+
+        vidElem.addEventListener("timeupdate", function() {
+          if (this.currentTime >= (stop + 0.3)) this.currentTime = stop;
+        });
+
+        vidElem.onclick = nextloop;
+
+        function nextloop() {
+          console.log(stop);
+          stop++;
+          stop = (stop + 1) % vidElem.duration
+        }
+
+      })();
+
+      }
+    </script>
+
+
+  </body>
+
+</html>
+

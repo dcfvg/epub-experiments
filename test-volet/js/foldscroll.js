@@ -43,40 +43,40 @@
             var $item;
             var $shading;
 
-            // if ( opts.shading ) {
-            //
-            //     // Create an overlay for shading
-            //     $shading = $( '<span class="shading"/>' ).css({
-            //         background: opts.shading,
-            //         position: 'absolute',
-            //         opacity: 0.0,
-            //         height: '100%',
-            //         width: '100%',
-            //         left: 0,
-            //         top: 0
-            //     });
-            //
-            //     // Add shading to each child
-            //     $kids.each( function() {
-            //
-            //         $item = $(this);
-            //         $item.css( prefix({
-            //             'backface-visibility': 'hidden',
-            //             'transform-style': 'preserve-3d' // Fixes perspective in FF 10+
-            //         }));
-            //
-            //         // Make sure shading isn't already applied
-            //         if ( !$item.data( '_shading' ) ) {
-            //
-            //             $shading = $shading.clone();
-            //
-            //             // Prepare element
-            //             $item.css( 'position', 'relative' );
-            //             $item.data( '_shading', $shading );
-            //             $item.append( $shading );
-            //         }
-            //     });
-            // }
+            if ( opts.shading ) {
+            
+                // Create an overlay for shading
+                $shading = $( '<span class="shading"/>' ).css({
+                    background: opts.shading,
+                    position: 'absolute',
+                    opacity: 0.0,
+                    height: '100%',
+                    width: '100%',
+                    left: 0,
+                    top: 0
+                });
+            
+                // Add shading to each child
+                $kids.each( function() {
+            
+                    $item = $(this);
+                    $item.css( prefix({
+                        'backface-visibility': 'hidden',
+                        'transform-style': 'preserve-3d' // Fixes perspective in FF 10+
+                    }));
+            
+                    // Make sure shading isn't already applied
+                    if ( !$item.data( '_shading' ) ) {
+            
+                        $shading = $shading.clone();
+            
+                        // Prepare element
+                        $item.css( 'position', 'relative' );
+                        $item.data( '_shading', $shading );
+                        $item.append( $shading );
+                    }
+                });
+            }
 
             // Prepare container
             $this.css( prefix({ 'backface-visibility': 'hidden' }));

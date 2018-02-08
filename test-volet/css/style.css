@@ -10,13 +10,12 @@ html, body {
 .images{
   position: absolute;
   bottom: 20px;
-  width: 768px;
   left: 0;
   top: 20px;
 }
 
 .images img{
-  max-width: 100%;
+  max-width: 50%;
 
 }
 
